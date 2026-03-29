@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+function validateSubject() {
+    var subjectId = document.querySelector('input[name="subject_id"]').value.trim();
+    var subjectName = document.querySelector('input[name="subject_name"]').value.trim();
+    var courseId = document.querySelector('input[name="course_id"]').value.trim();
+    var credits = document.querySelector('input[name="credits"]').value.trim();
+    var semester = document.querySelector('select[name="semester"]').value;
+
+    if (
+        subjectId === "" ||
+        subjectName === "" ||
+        courseId === "" ||
+        credits === "" ||
+        semester === ""
+    ) {
+        alert("Please fill all the fields");
+        return false; // stop form submission
+    }
+
+    return true; // allow submission
+}
+</script>
+<title>Subject Registration</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Subject Registration</h1>
+</header>
+
+<nav>
+    <a href="index.php">Dashboard</a>
+    <a href="student.html">Students</a>
+    <a href="lecturer.html">Lecturers</a>
+    <a href="course.html">Courses</a>
+    <a href="subject.html">Subjects</a>
+    <a href="marks.html">Marks</a>
+    <a href="logout.php" style="margin-left:auto;background:#e74c3c;">Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Add Subject</h2>
+    <form method="POST" action="subject_crud.php" onsubmit="return validateSubject();">
+       
+        <input type="text" name="subject_name" placeholder="Subject Name">
+        <input type="text" name="course_id" placeholder="Course ID">
+        <input type="text" name="credits" placeholder="Credits">
+        <select name="semester">
+            <option value="">Select Semester</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <button type="submit" name="add_subject">Add Subject</button>
+    </form>
+</div>
+
+<div class="container">
+     <form action="view_subjects.php" method="post">
+        <button type="submit" name="view_lecturers" class="btn-view">
+            View Subjects
+        </button>
+    </form>
+</div>
+
+<footer>
+    © 2025 ETT Campus. All Rights Reserved.
+</footer>
+
+</body>
+</html>

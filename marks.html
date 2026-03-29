@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marks Entry</title>
+<script>
+function validateMarks() {
+    var studentId = document.querySelector('input[name="student_id"]').value.trim();
+    var subjectId = document.querySelector('input[name="subject_id"]').value.trim();
+    var lecturerId = document.querySelector('input[name="lecturer_id"]').value.trim();
+    var marksObtained = document.querySelector('input[name="marks_obtained"]').value.trim();
+    var totalMarks = document.querySelector('input[name="total_marks"]').value.trim();
+
+    if (
+        studentId === "" ||
+        subjectId === "" ||
+        lecturerId === "" ||
+        marksObtained === "" ||
+        totalMarks === ""
+    ) {
+        alert("Please fill all the fields");
+        return false; // stop form submission
+    }
+
+    return true; // allow submission
+}
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Marks Entry</h1>
+</header>
+
+<nav>
+    <a href="index.php">Dashboard</a>
+    <a href="student.html">Students</a>
+    <a href="lecturer.html">Lecturers</a>
+    <a href="course.html">Courses</a>
+    <a href="subject.html">Subjects</a>
+    <a href="marks.html">Marks</a>
+    <a href="logout.php" style="margin-left:auto;background:#e74c3c;">Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Enter Marks</h2>
+    <form method="POST" action="marks_crud.php" onsubmit="return validateMarks();">
+        <input type="text" name="student_id" placeholder="Student ID">
+        <input type="text" name="subject_id" placeholder="Subject ID">
+        <input type="text" name="lecturer_id" placeholder="Lecturer ID">
+        <input type="text" name="marks_obtained" placeholder="Marks Obtained">
+        <input type="text" name="total_marks" placeholder="Total Marks">
+        <button type="submit" name="add_marks">Submit Marks</button>
+    </form>
+</div>
+
+<div class="container">
+     <form action="view_marks.php" method="post">
+        <button type="submit" name="view_lecturers" class="btn-view">
+            View Marks
+        </button>
+    </form>
+</div>
+
+<footer>
+    © 2025 ETT Campus. All Rights Reserved.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lecturer Registration</title>
+<link rel="stylesheet" href="css/style.css">
+
+<script>
+function validateLecturer() {
+    var lecturerId = document.querySelector('input[name="lecturer_id"]').value.trim();
+    var lecturerName = document.querySelector('input[name="lecturer_name"]').value.trim();
+    var nic = document.querySelector('input[name="nic"]').value.trim();
+    var email = document.querySelector('input[name="email"]').value.trim();
+    var phone = document.querySelector('input[name="phone"]').value.trim();
+    var department = document.querySelector('select[name="department"]').value;
+
+    if (
+        lecturerId === "" ||
+        lecturerName === "" ||
+        nic === "" ||
+        email === "" ||
+        phone === "" ||
+        department === ""
+    ) {
+        alert("Please fill all the fields");
+        return false; // stop form submission
+    }
+
+    return true; // allow submission
+}
+</script>
+</head>
+<body>
+
+<header>
+    <h1>Lecturer Registration</h1>
+</header>
+
+<nav>
+    <a href="index.php">Dashboard</a>
+    <a href="student.html">Students</a>
+    <a href="lecturer.html">Lecturers</a>
+    <a href="course.html">Courses</a>
+    <a href="subject.html">Subjects</a>
+    <a href="marks.html">Marks</a>
+    <a href="logout.php" style="margin-left:auto;background:#e74c3c;">Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Register Lecturer</h2>
+    <form method="POST" action="lecturer_crud.php" onsubmit="return validateLecturer();">
+       
+        <input type="text" name="lecturer_name" placeholder="Lecturer Name">
+        <input type="text" name="nic" placeholder="NIC">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="phone" placeholder="Phone">
+        <select name="department">
+            <option value="">Select Department</option>
+            <option>IT</option>
+            <option>Maths</option>
+            <option>Science</option>
+            <option>Languages</option>
+        </select>
+        <button type="submit" name="add_lecturer">Register Lecturer</button>
+    </form>
+</div>
+
+<div class="container">
+     <form action="view_lecturers.php" method="post">
+        <button type="submit" name="view_lecturers" class="btn-view">
+            View lecturers
+        </button>
+    </form>
+</div>
+
+<footer>
+    © 2025 ETT Campus. All Rights Reserved.
+</footer>
+
+</body>
+</html>

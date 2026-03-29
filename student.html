@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>Student Registration</h1>
+</header>
+
+<nav>
+    <a href="index.php">Dashboard</a>
+    <a href="student.html">Students</a>
+    <a href="lecturer.html">Lecturers</a>
+    <a href="course.html">Courses</a>
+    <a href="subject.html">Subjects</a>
+    <a href="marks.html">Marks</a>
+    <a href="logout.php" style="margin-left:auto;background:#e74c3c;">Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Register Student</h2>
+
+    <form method="POST" action="student_crud.php">
+      
+        <input type="text" name="student_name" placeholder="Student Name">
+        <input type="text" name="nic" placeholder="NIC">
+        <input type="text" name="course" placeholder="Course">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="phone" placeholder="Phone">
+        <select name="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+        <button type="submit" name="add_student" class="btn-register">
+            Register Student
+        </button>
+    </form>
+</div>
+<div class="container">
+     <form action="view_students.php" method="post">
+        <button type="submit" name="view_students" class="btn-view">
+            View Students
+        </button>
+    </form>
+</div>
+   
+
+
+   
+
+  
+
+
+<footer>
+    © 2025 ETT Campus. All Rights Reserved.
+</footer>
+
+</body>
+</html>

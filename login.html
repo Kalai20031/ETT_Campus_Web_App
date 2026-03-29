@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ETT Campus Login</title>
+<link rel="stylesheet" href="css/style.css">
+
+<script>
+      function validateLogin() {
+    var username = document.querySelector('input[name="username"]').value.trim();
+    var password = document.querySelector('input[name="password"]').value.trim();
+
+    if (username === "" || password === "") {
+        alert("Please fill all the fields");
+        return false; // stop form submission, stay on login page
+    }
+
+    return true; // allow form submission
+}
+
+</script>
+</head>
+<body>
+
+<header>
+    <h1>Admin Login</h1>
+</header>
+
+<nav>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+</nav>
+
+<div class="container">
+    <h2>Login</h2>
+    <form method="POST" action="admin_login.php" onsubmit="return validateLogin();">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" style="margin-top:10px;background:#0b4f9d;">Login</button>
+        <button type="button" onclick="window.location.href='signup.html'" style="margin-top:10px;background:#70a6e3;">Sign Up</button>
+    </form>
+</div>
+
+<footer>
+    © 2025 ETT Campus. All Rights Reserved.
+</footer>
+
+</body>
+</html>

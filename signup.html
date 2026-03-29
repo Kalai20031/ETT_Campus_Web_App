@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ETT Campus Sign Up</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+function validateSignup() {
+    var name = document.querySelector('input[name="name"]').value.trim();
+    var email = document.querySelector('input[name="email"]').value.trim();
+    var username = document.querySelector('input[name="username"]').value.trim();
+    var password = document.querySelector('input[name="password"]').value.trim();
+    var role = document.querySelector('select[name="role"]').value;
+
+    if (name === "" || email === "" || username === "" || password === "" || role === "") {
+        alert("Please fill all the fields");
+        return false; // stop form submission
+    }
+
+    return true; // allow submission
+}
+</script>
+</head>
+<body>
+
+<header>
+    <h1>Admin Registration</h1>
+</header>
+
+<nav>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+</nav>
+
+<div class="container">
+    <h2>Sign Up</h2>
+    <form method="POST" action="admin_signup.php" onsubmit="return validateSignup();">
+        <input type="text" name="name" placeholder="Admin Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <select name="role">
+            <option value="">Select Role</option>
+            <option>Admin</option>
+            <option>Staff</option>
+        </select>
+        <button type="submit" style="margin-top:10px;background:#593264;">Register</button>
+    </form>
+</div>
+
+<footer>
+    © 2025 ETT Campus. All Rights Reserved.
+</footer>
+
+</body>
+</html>
